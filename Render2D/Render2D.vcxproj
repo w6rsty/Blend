@@ -150,6 +150,16 @@
     <ClCompile Include="src\Application.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Blend.h" />
+    <ClInclude Include="src\Core\Color.h" />
+    <ClInclude Include="src\Core\Coordinate.h" />
+    <ClInclude Include="src\Core\Core.h" />
+    <ClInclude Include="src\Core\vector.h" />
+    <ClInclude Include="src\Graphics\Geometry\Circle.h" />
+    <ClInclude Include="src\Graphics\Geometry\Geometry.h" />
+    <ClInclude Include="src\Graphics\Geometry\Rectangle.h" />
+    <ClInclude Include="src\Graphics\Geometry\Triangle.h" />
+    <ClInclude Include="src\Physics\Collision\Collision.h" />
     <ClInclude Include="src\Renderer.h" />
     <ClInclude Include="src\Vertex.h" />
     <ClInclude Include="src\Window.h" />

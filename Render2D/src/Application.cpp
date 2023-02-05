@@ -1,22 +1,32 @@
-#include <array>
+#include "Core/Core.h"
+#include "Graphics/Geometry/Geometry.h"
 
-#include "Vertex.h"
 #include "Renderer.h"
 #include "Window.h"
+#include "Physics/Collision/Collision.h"
 
+#include <Windows.h>
+#include <iostream>
 
 int main()
 {
 	Blend::Window* window = new Blend::Window();
-	Blend::Renderer* renderer = new Blend::Renderer(window);
-	char c = 'a';
-	while (1)
-	{
-		window->ClearColor(c);
+	Blend::Renderer renderer(window);
 
-		system("cls");
-		renderer->Draw();
-		std::cin >> c;
+	auto canvas = window->BlankFrame;
+
+	Blend::Rectangle rec(3, 3, 3 + 10, 3 + 5, 'A');
+	auto offset = Blend::vec2(1, 1);
+	Blend::RecCollision recCollision(&rec, window);
+
+	while(1)
+	{
+		renderer.Clear();
+		recCollision.Listen(offset);
+		rec.Offset(offset);
+		renderer.Draw(rec.Fill(canvas));
+		std::cout << std::endl;
+		//std::cin.get();
+		Sleep(20);
 	}
-	return 0;
 }

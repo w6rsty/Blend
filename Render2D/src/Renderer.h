@@ -1,14 +1,17 @@
 #pragma once
 
+#include "Blend.h"
 #include "Window.h"
 
 #include <array>
 #include <iostream>
+#include <Windows.h>
 
 namespace Blend
 {
 	class Renderer
 	{
+		// To create a Renderer, you must have a Window first!
 	public:
 		Renderer(Window* window)
 		{
@@ -38,10 +41,17 @@ namespace Blend
 			m_Window->UpdateFrame(this->Render(raw));
 		}
 
-		void Draw()
+		void Clear()
+		{
+			m_Window->Clear();
+			Sleep(90);
+			system("cls");
+		}
+
+		void Draw(RAW raw)
 		{
 			std::cout << m_Window->Frame();
-			this->Update(m_Window->BlankFrame);
+			this->Update(raw);
 			m_Window->SwapFrame();
 		}
 	private:

@@ -2,10 +2,7 @@
 
 #include <array>
 
-const int WIDTH		= 80;
-const int HEIGHT	= 40;
-
-#define RAW std::array<char,WIDTH*HEIGHT>
+#include "Blend.h"
 
 namespace Blend
 {
@@ -19,7 +16,7 @@ namespace Blend
 			// Set blank frame(raw)
 			for (int i = 0; i < m_Resolution; i++)
 			{
-				BlankFrame[i] = ' ';
+				BlankFrame[i] = '.';
 			}
 			// Set first frame(in Renderer's constructor) 
 		}
@@ -33,7 +30,7 @@ namespace Blend
 		{
 			for (int i = 0; i < m_Resolution; i++)
 			{
-				BlankFrame[i] = ' ';
+				BlankFrame[i] = '.';
 			}
 		}
 
